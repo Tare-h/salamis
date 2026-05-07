@@ -1,0 +1,482 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>أكاديمية سلاميس الرياضية | سلمية - احجز الكترونيا </title>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Cairo', sans-serif;
+            background: #0a0c10;
+            color: #f0f3f8;
+            line-height: 1.6;
+        }
+
+        :root {
+            --red: #d32f2f;
+            --red-dark: #b71c1c;
+            --red-light: #ff6659;
+            --gray-bg: #11161e;
+            --border-dim: #2a2f3a;
+        }
+
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #1e1e24;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: var(--red);
+            border-radius: 8px;
+        }
+
+        .container {
+            max-width: 1300px;
+            margin: 0 auto;
+            padding: 0 25px;
+        }
+
+        /* header */
+        header {
+            background: #0a0c10;
+            border-bottom: 2px solid var(--red);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            padding: 18px 0;
+            backdrop-filter: blur(8px);
+        }
+        .header-flex {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+        .logo h1 {
+            font-size: 1.9rem;
+            font-weight: 800;
+            background: linear-gradient(135deg, #fff, var(--red-light));
+            background-clip: text;
+            -webkit-background-clip: text;
+            color: transparent;
+        }
+        .logo p {
+            font-size: 0.75rem;
+            color: #ccc;
+        }
+        .nav-links {
+            display: flex;
+            gap: 28px;
+            list-style: none;
+        }
+        .nav-links a {
+            color: #f0f3f8;
+            text-decoration: none;
+            font-weight: 600;
+            transition: 0.2s;
+            border-bottom: 2px solid transparent;
+            padding-bottom: 5px;
+        }
+        .nav-links a:hover {
+            color: var(--red);
+            border-bottom-color: var(--red);
+        }
+        .btn-red {
+            background: var(--red);
+            color: white;
+            padding: 8px 24px;
+            border-radius: 40px;
+            text-decoration: none;
+            font-weight: 700;
+            transition: 0.2s;
+            display: inline-block;
+        }
+        .btn-red:hover {
+            background: var(--red-light);
+            transform: scale(1.02);
+        }
+
+        section {
+            padding: 70px 0;
+            border-bottom: 1px solid rgba(255,255,255,0.05);
+        }
+        .section-title {
+            font-size: 2.2rem;
+            font-weight: 800;
+            text-align: center;
+            margin-bottom: 50px;
+        }
+        .section-title span {
+            color: var(--red);
+            border-right: 4px solid var(--red);
+            padding-right: 15px;
+        }
+
+        /* لمحة تعريفية */
+        .about-text {
+            max-width: 1000px;
+            margin: 0 auto;
+            background: var(--gray-bg);
+            padding: 40px;
+            border-radius: 32px;
+            border-right: 6px solid var(--red);
+            font-size: 1.1rem;
+            line-height: 1.85;
+            box-shadow: 0 15px 30px rgba(0,0,0,0.3);
+        }
+        .about-text p {
+            margin-bottom: 20px;
+        }
+        .about-text strong {
+            color: var(--red);
+        }
+
+        /* 7 مدربين */
+        .trainers-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 35px;
+        }
+        .trainer-card {
+            background: var(--gray-bg);
+            border-radius: 28px;
+            overflow: hidden;
+            transition: 0.25s;
+            border: 1px solid var(--border-dim);
+            text-align: center;
+            padding-bottom: 20px;
+        }
+        .trainer-card:hover {
+            transform: translateY(-6px);
+            border-color: var(--red);
+            box-shadow: 0 20px 25px -12px rgba(211,47,47,0.3);
+        }
+        .trainer-img {
+            width: 100%;
+            height: 280px;
+            object-fit: cover;
+        }
+        .trainer-card h3 {
+            font-size: 1.5rem;
+            margin: 15px 0 5px;
+        }
+        .trainer-role {
+            color: var(--red);
+            font-weight: 700;
+            margin-bottom: 8px;
+        }
+        .trainer-bio {
+            padding: 0 15px;
+            font-size: 0.88rem;
+            color: #cbd5e6;
+        }
+
+        /* نموذج الحجز - بدون لوحة */
+        .booking-simple {
+            max-width: 600px;
+            margin: 0 auto;
+            background: var(--gray-bg);
+            border-radius: 32px;
+            padding: 35px;
+            border: 1px solid var(--border-dim);
+            text-align: center;
+        }
+        .booking-simple h3 {
+            color: var(--red);
+            font-size: 1.8rem;
+            margin-bottom: 20px;
+        }
+        .form-group {
+            margin-bottom: 20px;
+            text-align: right;
+        }
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+        }
+        .form-group input, .form-group select {
+            width: 100%;
+            padding: 12px 16px;
+            background: #1e252f;
+            border: 1px solid var(--border-dim);
+            border-radius: 48px;
+            color: white;
+            font-family: 'Cairo', sans-serif;
+            font-size: 1rem;
+        }
+        .form-group input:focus, .form-group select:focus {
+            outline: none;
+            border-color: var(--red);
+            box-shadow: 0 0 0 2px rgba(211,47,47,0.3);
+        }
+        .submit-btn {
+            background: #25D366;
+            width: 100%;
+            padding: 12px;
+            border: none;
+            border-radius: 48px;
+            font-weight: 800;
+            font-size: 1.1rem;
+            cursor: pointer;
+            color: white;
+            transition: 0.2s;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+        }
+        .submit-btn:hover {
+            background: #128C7E;
+            transform: scale(1.01);
+        }
+        .form-message {
+            margin-top: 15px;
+            font-size: 0.9rem;
+        }
+
+        footer {
+            background: #07090e;
+            text-align: center;
+            padding: 30px;
+            color: #8f9bb3;
+        }
+        footer i {
+            color: var(--red);
+        }
+
+        @media (max-width: 800px) {
+            .section-title {
+                font-size: 1.8rem;
+            }
+            .trainers-grid {
+                gap: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <div class="container header-flex">
+       <div class="logo">
+    <img src="logo.png" alt="شعار أكاديمية سلاميس" style="height: 70px; width: auto;">
+    <p>اكادمية سلاميس الرياضية</p>
+</div>
+        <ul class="nav-links">
+            <li><a href="#about">عن الأكاديمية</a></li>
+            <li><a href="#trainers">مدربونا (7)</a></li>
+            <li><a href="#booking">احجز الآن</a></li>
+        </ul>
+        <a href="#booking" class="btn-red">📋 سجل الكترونيا  </a>
+    </div>
+</header>
+
+<main>
+    <!-- القسم الأول: لمحة تعريفية كبيرة -->
+    <section id="about">
+        <div class="container">
+            <div class="section-title"><span>لمحة عن أكاديمية سلاميس</span></div>
+            <div class="about-text">
+                <p>تأسست <strong>أكاديمية سلاميس الرياضية</strong> في مدينة <strong>سلمية</strong> (سوريا) عام 2018، لتصبح واحدة من أبرز الصالات الرياضية المتكاملة في المنطقة. تمتد الأكاديمية على مساحة 300 متر مربع، وتضم أحدث الأجهزة العالمية من علامات تجارية رائدة في عالم اللياقة البدنية.</p>
+                <p>نحن لا نقدم فقط تمارين روتينية، بل نصنع <strong>برامج تدريبية مخصصة</strong> تناسب جميع الفئات العمرية والمستويات البدنية. سواء كنت مبتدئاً ترغب في تحسين صحتك العامة، أو رياضياً محترفاً تسعى لتحقيق أرقام قياسية، فإن فريقنا من المدربين أصحاب الخبرات الطويلة سيرافقك خطوة بخطوة.</p>
+                <p>توفر الأكاديمية أقساماً متعددة:ادوات ايروبيك مجهزة بالكامل،رياضة ترامبولين، استوديو خاص باليوجا والتامل، ومنطقة للكلاستنس والباركور والجمباز  بأحدث الأجهزة. كما ننظم دورات رياضية وورش عمل شهرية يقدمها خبراء رياضيون للاطفال.</p>
+                <p>نؤمن في أكاديمية سلاميس بأن الرياضة تغير الحياة، لذا نضع بين يديك كل ما تحتاجه لتبدأ رحلتك نحو القوة، الصحة، والثقة بالنفس. نرحب بك في عائلتنا الرياضية الكبيرة، حيث الإرادة الحمراء تصنع الأبطال.</p>
+                <p>💪 <strong>أكثر من 600 عضو نشط · 10 مدرب معتمد · 35 برنامجاً تدريبياً · رضا 98% من المنتسبين</strong></p>
+            </div>
+        </div>
+    </section>
+
+    <!-- القسم الثاني: 7 مدربين بصور ولمحات -->
+    <section id="trainers">
+        <div class="container">
+            <div class="section-title"><span>طاقمنا التدريبي (7 مدربين)</span></div>
+            <div class="trainers-grid">
+                <!-- مدرب 1 -->
+                <div class="trainer-card">
+                    <img class="trainer-img" src="https://images.pexels.com/photos/841130/pexels-photo-841130.jpeg?auto=compress&cs=tinysrgb&w=400&h=500&fit=crop" alt="فارس الحلبي">
+                    <h3>الكوتش نسرين القصير </h3>
+                    <div class="trainer-role">مدربة اللياقة والايروبيك</div>
+                    <div class="trainer-bio">NASM - ISSA، 20 سنوات في تدريب الأبطال وتصميم برامج القوة عضو الاتحاد السوري الرياضي.</div>
+                </div>
+                <!-- مدرب 2 -->
+                <div class="trainer-card">
+                    <img class="trainer-img" src="https://images.pexels.com/photos/6455924/pexels-photo-6455924.jpeg?auto=compress&cs=tinysrgb&w=400&h=500&fit=crop" alt="ميرنا حكيم">
+                    <h3>غيثاء هابيل </h3>
+                    <div class="trainer-role">كوتش الرقص التعبيري والترامبولين
+                        من اوائل خريجين كلية التربية الرياضية 
+حائزة على شهادات باللياقة البدنية وبناء الاجسام والايروبيك 
+
+مدربة لياقة بدنية و ترامبولين ورقص بأكاديمية سلاميس الرياضية 
+
+حيث يجمع كورس اللياقة البدنية :
+بين تدريب القوة والمرونة و لياقة القلب ❤️
+
+وكورس الترامبولين:
+ لحرق الدهون وزيادة اللياقة وتنشيط الجسم ❤️
+
+وايضاً كورس الرقص : 
+ يعطي الطاقة الايجابية و يزيد من مرونة الجسم والمفاصل والحصول على طاقة انثوية عالي </div>
+                    <div class="trainer-bio"></div>
+                </div>
+                <!-- مدرب 3 -->
+                <div class="trainer-card">
+                    <img class="trainer-img" src="https://images.pexels.com/photos/260447/pexels-photo-260447.jpeg?auto=compress&cs=tinysrgb&w=400&h=500&fit=crop" alt="سامر قاسم">
+                    <h3>الكوتش مهند سيفو </h3>
+                    <div class="trainer-role">الكاليستنكس (Calisthenics) هي الرياضة الذي يتم فيها استخدام وزن الجسم كمقاومة لتحسين اللياقة البدنية بكافة عناصرها بشكل عام واتقان مهارات استعراضية عالية الصعوبة بشكل خاص</div>
+                    <div class="trainer-bio">الكوتش مهند سيفو 
+خريج من كلية التربية الرياضة من جامعة حماه 
+حاصل على دبلوم التاهيل التربوي من جامعة حمص 
+مدرس في كلية التربية الرياضية في جامعة حماه
+لاعب كاليثتنكس وباركور لاكثر من ٧ سنوات
+حاصل على شهادة تدريب كمال اجسام درجة تانية من الاتحاد الرياضي وحكم درجة ثالثة</div>
+                </div>
+                <!-- مدرب 4 -->
+                <div class="trainer-card">
+                    <img class="trainer-img" src="https://images.pexels.com/photos/3757942/pexels-photo-3757942.jpeg?auto=compress&cs=tinysrgb&w=400&h=500&fit=crop" alt="كريم أسعد">
+                    <h3>الكوتش كريم القصير</h3>
+                    <div class="trainer-role">متخصص الباركور  والكارديو</div>
+                    <div class="trainer-bio">خبير دولي بالباركور  حرق الدهون، نظام تدريب متقطع بنتائج سريعة.</div>
+                </div>
+                <!-- مدرب 5 -->
+                <div class="trainer-card">
+                    <img class="trainer-img" src="https://images.pexels.com/photos/2261477/pexels-photo-2261477.jpeg?auto=compress&cs=tinysrgb&w=400&h=500&fit=crop" alt="نادر شيخو">
+                    <h3>الكوتش نغم عابدين </h3>
+                    <div class="trainer-role">مدرب ألعاب القوة للاطفال</div>
+                    <div class="trainer-bio">رفع الأثقال، deadlift & squat، مدرب أولمبي معتمد.</div>
+                </div>
+                <!-- مدرب 6 -->
+                <div class="trainer-card">
+                    <img class="trainer-img" src=ايمان.jpg alt="ليان شحرور">
+                    <h3>الكوتش هدى فهد </h3>
+                    <div class="trainer-role">مدربةالتيكونجيسو </div>
+                    <div class="trainer-bio">شهادات متقدمة في البيلاتس والإصابات الرياضية.حزام اسود خريجة كوريا في الفنون القتالية</div>
+                </div>
+                <!-- مدرب 7 -->
+                <div class="trainer-card">
+                    <img class="trainer-img" src="https://images.pexels.com/photos/1552242/pexels-photo-1552242.jpeg?auto=compress&cs=tinysrgb&w=400&h=500&fit=crop" alt="رامي داوود">
+                    <h3>الكوتش لميس هابيل  </h3>
+                    <div class="trainer-role">جمباز  </div>
+                    <div class="trainer-bio"> الجمباز ليس مجرد رياضة لتقوية الجسد، بل هو مدرسة متكاملة تُعلّم الإنسان الصبر والانضباط والثقة بالنفس، حيث يتحول التعب إلى إنجاز، والخوف إلى شجاعة.
+من خلال الجمباز، يتعلم الفرد كيف يسيطر على جسده وعقله معاً، فيكتسب توازناً داخلياً ينعكس على حياته اليومية وقدرته على مواجهة التحديات بثبات.
+الجمباز يعزز القوة والمرونة والتناسق الحركي، لكنه في الوقت نفسه يبني شخصية قوية قادرة على تحمل الضغوط وعدم الاستسلام مهما كانت الصعوبات.
+عندما يمارس الإنسان الجمباز، فهو لا يطور مهاراته البدنية فقط، بل يزرع في داخله روح الإصرار التي تدفعه لتحقيق أهدافه في كل مجالات الحياة.
+الجمباز يمنحك القدرة على اكتشاف حدودك الحقيقية، ثم يدفعك لتتجاوزها خطوة بعد خطوة حتى تصل إلى مستوى لم تكن تتخيله من قبل.
+في كل تمرين جمباز، هناك درس جديد عن الالتزام والعمل الجاد، حيث يتعلم اللاعب أن النجاح لا يأتي صدفة، بل هو نتيجة جهد مستمر وتدريب يومي.
+الجمباز يساعد الأطفال والكبار على حد سواء في بناء الثقة بالنفس، لأن كل حركة يتم إتقانها تعطي شعوراً بالإنجاز وتدفعهم للمضي قدماً.
+هذه الرياضة تساهم في تحسين اللياقة البدنية بشكل شامل، من تقوية العضلات إلى تحسين التوازن والمرونة، مما يجعل الجسم أكثر صحة وقدرة على الأداء.
+الجمباز يعلّمك أن الفشل ليس نهاية الطريق، بل هو جزء أساسي من رحلة النجاح، حيث يتحول كل سقوط إلى فرصة للنهوض بشكل أقوى.
+من يمارس الجمباز يدرك أن السيطرة على الجسد تبدأ من السيطرة على العقل، وأن الإرادة هي المفتاح الحقيقي للوصول إلى القمة..</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- القسم الثالث: نموذج حجز - يرسل إلى واتساب بدون تخزين محلي -->
+    <section id="booking">
+        <div class="container">
+            <div class="section-title"><span>احجز حصتك الآن عبر واتساب</span></div>
+            <div class="booking-simple">
+                <h3><i class="fab fa-whatsapp"></i> أدخل بياناتك وسنرد عليك فوراً</h3>
+                <form id="bookingForm">
+                    <div class="form-group">
+                        <label>اسم اللاعب *</label>
+                        <input type="text" id="playerName" placeholder="الاسم الكامل" required>
+                    </div>
+                    <div class="form-group">
+                        <label>نوع الرياضة *</label>
+                        <select id="sportType" required>
+                            <option value="لياقة عامة">لياقة بدنية الكوتش نسرين </option>
+                            <option value="كمال أجسام">لياقة الكوتش غيثاء </option>
+                            <option value="كيك بوكسينغ">باركور </option>
+                            <option value="يوجا">جمباز</option>
+                            <option value="بيلاتس">كلاستنس</option>
+                            <option value="HIIT">HIIT - تايكونجيستو</option>
+                            <option value="فنون قتالية">فنون قتالية تايكوندو</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label>رقم الهاتف *</label>
+                        <input type="tel" id="phoneNumber" placeholder="09xxxxxxxx" required>
+                    </div>
+                    <div class="form-group">
+                        <label>العمر *</label>
+                        <input type="number" id="age" placeholder="مثال: 25" min="12" max="80" required>
+                    </div>
+                    <button type="button" id="sendWhatsAppBtn" class="submit-btn">
+                        <i class="fab fa-whatsapp"></i> إرسال الحجز عبر واتساب
+                    </button>
+                    <div id="formMessage" class="form-message"></div>
+                </form>
+            </div>
+        </div>
+    </section>
+</main>
+
+<footer>
+    <div class="container">
+        <p>© 2025 أكاديمية سلاميس الرياضية - سلمية · احجز الآن وابدأ رحلتك</p>
+        <p><i class="fas fa-heart"></i> ننتظرك في صالتنا الرياضية | تواصل معنا عبر واتساب</p>
+    </div>
+</footer>
+
+<script>
+    // رقم هاتف المسؤول (أنت) - تم ضبطه على الرقم الذي قدمته: 00963988314273
+    const ADMIN_PHONE = '963988314273';   // الكود بدون الصفر الأول أو "+" ، فقط مفتاح 963 ثم الرقم
+
+    document.getElementById('sendWhatsAppBtn').addEventListener('click', function() {
+        // جلب البيانات من الحقول
+        const name = document.getElementById('playerName').value.trim();
+        const sport = document.getElementById('sportType').value;
+        const phone = document.getElementById('phoneNumber').value.trim();
+        const age = document.getElementById('age').value.trim();
+        const messageDiv = document.getElementById('formMessage');
+
+        // التحقق من صحة المدخلات
+        if (!name || !phone || !age) {
+            messageDiv.innerHTML = '<span style="color:#ff8a6f;">❌ الرجاء ملء جميع الحقول (الاسم، الهاتف، العمر).</span>';
+            return;
+        }
+        if (isNaN(parseInt(age)) || parseInt(age) < 12 || parseInt(age) > 100) {
+            messageDiv.innerHTML = '<span style="color:#ff8a6f;">❌ العمر يجب أن يكون بين 12 و 100 سنة.</span>';
+            return;
+        }
+        if (phone.length < 9) {
+            messageDiv.innerHTML = '<span style="color:#ff8a6f;">❌ رقم الهاتف غير صحيح (أقل من 9 أرقام).</span>';
+            return;
+        }
+
+        // بناء نص الرسالة (منسق)
+        const currentTime = new Date().toLocaleString('ar-EG');
+        const message = `🆕 حجز جديد من موقع أكاديمية سلاميس%0A👤 الاسم: ${name}%0A🏅 الرياضة: ${sport}%0A📞 هاتف العميل: ${phone}%0A🎂 العمر: ${age}%0A📅 تاريخ الحجز: ${currentTime}`;
+
+        // إنشاء رابط واتساب مباشر مع الرسالة
+        const whatsappUrl = `https://wa.me/${ADMIN_PHONE}?text=${message}`;
+
+        // فتح نافذة واتساب في تبويب جديد
+        window.open(whatsappUrl, '_blank');
+
+        // إظهار رسالة نجاح للمستخدم
+        messageDiv.innerHTML = '<span style="color:#a5d6a5;">✅ تم فتح محادثة واتساب، فقط اضغط إرسال لتأكيد حجزك. سنرد عليك قريباً!</span>';
+        
+        // اختيارياً: مسح الحقول بعد الإرسال (تعطيلها إذا أردت، لكن الأفضل تركها)
+        // document.getElementById('bookingForm').reset(); // إذا أردت مسحها أزل التعليق
+        
+        // إخفاء رسالة النجاح بعد 5 ثواني
+        setTimeout(() => {
+            if (messageDiv) messageDiv.innerHTML = '';
+        }, 6000);
+    });
+</script>
+</body>
+</html>ذ
